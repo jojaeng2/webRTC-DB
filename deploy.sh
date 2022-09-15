@@ -14,18 +14,18 @@ echo ''
 sleep 3
 
 cd ./auth-service
-docker-compose up
+docker-compose up & 
 cd ..
 
 sleep 3
 
 cd ./chat-service
-docker-compose up
+docker-compose up &
 cd ..
 
 
 sleep 3
 
 cd ./voice-service
-docker-compose up
+docker-compose up &
 cd ..
