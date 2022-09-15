@@ -1,0 +1,16 @@
+# 버전지정
+version: "3.3" 
+
+# 컨테이너 설정
+services: 
+  voice-redis:
+    image: redis:6.2.6
+    command: [ "redis-server", "--protected-mode", "no" ] 
+    ports:
+      - 6381:6379
+    volumes:
+      - voice-db-redis:/data
+
+volumes:
+  voice-db-redis:
+    external: true

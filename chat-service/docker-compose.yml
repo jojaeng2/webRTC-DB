@@ -1,0 +1,30 @@
+# 버전지정
+version: "3.3" 
+
+# 컨테이너 설정
+services: 
+  chat-database:
+    image: postgres:latest
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_DB: chat-db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: 1234
+    volumes:
+      - chat-db-postgresql:/var/lib/postgresql/data
+  
+  chat-redis:
+    image: redis:6.2.6
+    command: [ "redis-server", "--protected-mode", "no" ]
+    ports:
+      - 6380:6379
+    volumes:
+      - chat-db-redis:/data
+
+# docker volume 사용
+volumes:
+  chat-db-postgresql:
+    external: true
+  chat-db-redis:
+    external: true
