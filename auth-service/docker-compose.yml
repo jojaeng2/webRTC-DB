@@ -5,7 +5,7 @@ version: "3.3"
 
 services: 
   honeybees-db:
-    image: postgres:latest
+    image: postgres
     ports:
       - 5432:5432
     environment:
