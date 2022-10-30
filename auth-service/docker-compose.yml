@@ -4,16 +4,16 @@ version: "3.3"
 # 컨테이너 설정
 
 services: 
-  auth-database:
+  honeybees-db:
     image: postgres:latest
     ports:
       - 5432:5432
     environment:
-      POSTGRES_DB: auth-db
+      POSTGRES_DB: honeybees
       POSTGRES_USER: user
       POSTGRES_PASSWORD: 1234
     volumes:
-      - users-db-postgresql:/var/lib/postgresql/data
+      - honeybees-db:/var/lib/postgresql/data
   
   auth-redis:
     image: redis:6.2.6
@@ -24,7 +24,7 @@ services:
       - users-db-redis:/data
 
 volumes:
-  users-db-postgresql:
+  honeybees-db:
     external: true
   users-db-redis:
     external: true
