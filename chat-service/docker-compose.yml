@@ -4,7 +4,7 @@ version: "3.3"
 # 컨테이너 설정
 services: 
   chat-database:
-    image: postgres
+    image: postgres:14.5
     ports:
       - 5433:5432
     environment:
